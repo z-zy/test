@@ -8,7 +8,7 @@ import reactor.core.publisher.Flux;
 import javax.annotation.PostConstruct;
 import java.util.UUID;
 
-@Component
+//@Component
 public class CoffeeLoader {
     private final ReactiveRedisConnectionFactory factory;
     private final ReactiveRedisOperations<String, Coffee> coffeeOps;
@@ -18,7 +18,7 @@ public class CoffeeLoader {
         this.coffeeOps = coffeeOps;
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void loadData() {
         factory.getReactiveConnection().serverCommands().flushAll().thenMany(
                 Flux.just("Jet Black Redis", "Darth Redis", "Black Alert Redis")
